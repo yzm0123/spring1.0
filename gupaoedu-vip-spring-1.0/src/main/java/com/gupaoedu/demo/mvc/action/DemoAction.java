@@ -24,7 +24,7 @@ public class DemoAction {
 	private MyService myService;
 
 	@GPRequestMapping("/query")
-	public void query(HttpServletRequest req, HttpServletResponse resp,@GPRequestParam(value = "name") String name){
+	public void query(HttpServletRequest req, HttpServletResponse resp,@GPRequestParam("name") String name){
 //		String result = demoService.get(name);
 		String result = "My name is " + name;
 		try {
@@ -45,7 +45,7 @@ public class DemoAction {
 	}
 
 	@GPRequestMapping("/sub")
-	public void add(HttpServletRequest req, HttpServletResponse resp,
+	public void sub(HttpServletRequest req, HttpServletResponse resp,
 					@GPRequestParam("a") Double a, @GPRequestParam("b") Double b){
 		try {
 			resp.getWriter().write(a + "-" + b + "=" + (a - b));
